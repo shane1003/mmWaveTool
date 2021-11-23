@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>PageName</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="sb-nav-fixed">
+      <div class="loader">
+      </div>
+
+      <div class="container" style="display:none">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="http://localhost:8888/">Title</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!">
+          <i class="fa fa-bars"></i>
+        </button>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="http://localhost:8888/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Main Page
+                        </a>
+                        <a class="nav-link" href="http://localhost:8888/indoor">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Indoor
+                        </a>
+                        <a class="nav-link" href="http://localhost:8888/suburban">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Suburban
+                        </a>
+                        <a class="nav-link" href="http://localhost:8888/urban">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Urban
+                        </a>
+                        <a class="nav-link" href="http://localhost:8888/result">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Result
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    <div class="card mb-4" style="float: left; height: 650px; width: 50%; margin-top:30px">
+                      <h3 style="text-align: center">결과 사진 이름 리스트</h3>
+                      <div class="" style="margin-left: 50px; margin-right: 50px;">
+                        <button class="btn btn-primary active" type="button" name="button" id="indoorBtn" style="width:32%;">Indoor</button>
+                        <button class="btn btn-primary" type="button" name="button" id="outdoorBtn" style="width:32%; margin-left: 1%">Outdoor</button>
+                        <button class="btn btn-primary" type="button" name="button" id="suburbanBtn" style="width:32%; margin-left: 1%">Suburban</button>
+                      </div>
+                      <div class="card-body" style="margin-left: 50px; margin-right: 50px; margin-bottom: 30px; border: 1px solid gray; overflow:scroll" >
+                        <div id="indoor">
+                          Indoor
+                        </div>
+                        <div id="outdoor" style="display:none">
+                          Outdoor
+                        </div>
+                        <div id="suburban" style="display:none">
+                          Suburban
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card mb-4" style="float: left; height: 650px; width: 50%; margin-top:30px">
+                      <h3 style="text-align: center;">결과 사진</h3>
+                      <div class="card-body" style="margin-left: 50px; margin-right: 50px; margin-bottom: 30px; border: 1px solid gray;">
+
+                      </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div>
+      </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/scripts.js') }}" charset="utf-8"></script>
+        <script>
+          $('#indoorBtn').on('click', function(){
+            $('#indoorBtn').addClass('active')
+            $('#indoor').css('display', 'block')
+            $('#outdoorBtn').removeClass('active')
+            $('#outdoor').css('display', 'none')
+            $('#suburbanBtn').removeClass('active')
+            $('#suburban').css('display', 'none')
+          })
+          $('#outdoorBtn').on('click', function(){
+            $('#indoorBtn').removeClass('active')
+            $('#indoor').css('display', 'none')
+            $('#outdoorBtn').addClass('active')
+            $('#outdoor').css('display', 'block')
+            $('#suburbanBtn').removeClass('active')
+            $('#suburban').css('display', 'none')
+          })
+          $('#suburbanBtn').on('click', function(){
+            $('#indoorBtn').removeClass('active')
+            $('#indoor').css('display', 'none')
+            $('#outdoorBtn').removeClass('active')
+            $('#outdoor').css('display', 'none')
+            $('#suburbanBtn').addClass('active')
+            $('#suburban').css('display', 'block')
+          })
+        </script>
+    </body>
+</html>
