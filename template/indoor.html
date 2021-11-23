@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>PageName</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="sb-nav-fixed">
+      <div class="loader">
+      </div>
+
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="http://localhost:8888/">Title</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!">
+          <i class="fa fa-bars"></i>
+        </button>
+    </nav>
+    <div id="layoutSidenav" class="container" style="display:none">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="http://localhost:8888/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Main Page
+                        </a>
+                        <a class="nav-link" href="http://localhost:8888/indoor">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Indoor
+                        </a>
+                        <a class="nav-link" href="http://localhost:8888/suburban">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Suburban
+                        </a>
+                        <a class="nav-link" href="http://localhost:8888/urban">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Urban
+                        </a>
+                        <a class="nav-link" href="http://localhost:8888/result">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Result
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+          <div id="layoutSidenav_content">
+              <main>
+                  <div class="container-fluid">
+                      <div class="card mb-4" style="float: left; height: 650px; width: 50%; margin-top:30px">
+                          <div class="card-body">
+                            <form class="" action="/indoor" method="post">
+                              <h3>Scenario</h3>
+                              <div class="" style="border: 1px solid gray; text-align: center">
+                                <label for="scenario1"><input type="radio" name="scenario" id="scenario1" value="1">Scenario#1</label>&nbsp;&nbsp;
+                                <label for="scenario2"><input type="radio"name="scenario" id="scenario2" value="2">Scenario#2</label>&nbsp;&nbsp;
+                                <label for="scenario3"><input type="radio"name="scenario" id="scenario3" value="3">Scenario#3</label>&nbsp;&nbsp;
+                                <label for="scenario4"><input type="radio"name="scenario" id="scenario4" value="4">Scenario#4</label>&nbsp;&nbsp;
+                                <label for="scenario5"><input type="radio"name="scenario" id="scenario5" value="5">Scenario#5</label>&nbsp;&nbsp;
+                                <label for="scenario6"><input type="radio"name="scenario" id="scenario6" value="6">Scenario#6</label>&nbsp;
+
+                                <label for="scenario7"><input type="radio"name="scenario" id="scenario7" value="7">Scenario#7</label>&nbsp;&nbsp;
+                                <label for="scenario8"><input type="radio"name="scenario" id="scenario8" value="8">Scenario#8</label>&nbsp;&nbsp;
+                                <label for="scenario9"><input type="radio"name="scenario" id="scenario9" value="9">Scenario#9</label>&nbsp;&nbsp;
+                                <label for="scenario10"><input type="radio"name="scenario" id="scenario10" value="10">Scenario#10</label>&nbsp;&nbsp;
+                                <label for="scenario11"><input type="radio"name="scenario" id="scenario11" value="11">Scenario#11</label>&nbsp;&nbsp;
+                                <label for="scenario12"><input type="radio"name="scenario" id="scenario12" value="12">Scenario#12</label>
+                              </div>
+                              <br><br>
+                              <h3>이미지 첨부</h3>
+                              <input type="file" name="images" value="" accept="image/png, image/jpeg">
+                              <br><br><br>
+                              <h3>Tx의 x, y 좌표</h3>
+                              <label for="">X : </label>
+                              <input type="text" name="x"></input>
+                              &nbsp;&nbsp;
+                              <label for="">Y : </label>
+                              <input type="text" name="y"></input>
+                              <br><br>
+                              <label for="">안테나 각도 : </label>
+                              <input type="text" name="tilt" style="width:335px">
+                              <br><br>
+                              <label for="">방위각 : </label>
+                              <input type="text" name="height" style="width:335px">
+                              <br><br>
+                              <input class="btn btn-primary" type="submit" name="" value="SUBMIT">
+                            </form>
+                        </div>
+                      </div>
+                      <div class="card mb-4" style="float: left; height: 650px; width: 50%; margin-top:30px">
+                        <h3 style="text-align: center">결과 사진 이름 리스트</h3>
+                        <div class="card-body" id="resultImgList" style="margin-left: 50px; margin-right: 50px; margin-bottom: 20px; border: 1px solid gray; overflow:scroll" >
+
+                        </div>
+                        <h3 style="text-align: center; border-top: 1px solid gray">결과 사진</h3>
+                        <div class="card-body" style="margin-left: 50px; margin-right: 50px; margin-bottom: 20px; border: 1px solid gray;">
+
+                        </div>
+                      </div>
+                  </div>
+              </main>
+          </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+      <script src="{{ url_for('static', filename='js/scripts.js') }}" charset="utf-8"></script>
+      <script>
+        $(document).ready(function(){
+            $.ajax ({
+                url: './indoor-data',
+                type: 'GET',
+                success: function(result){
+                    var contents = ""
+                    console.log(window.location.href)
+
+                    console.log(JSON.parse(result).list)
+                    for(let img of JSON.parse(result).list){
+                        contents += "<li onclick=preview('"+ img +"')>" + img.substring(img.lastIndexOf('/') + 1, img.length + 1) + "</li>"
+                    }
+                    document.getElementById('resultImgList').innerHTML = contents
+                }
+            })
+        })
+
+        function preview(url){
+            // var path = window.location.pathname(url.substring(url.lastIndexOf('/') + 1, url.length + 1))
+            // console.log(path)
+            // document.getElementById('resultPreview').innerHTML = "<img src='" + (url).toString() + "' alt='resultImg'></img>"
+            window.open("file:////Users/taehyuneom/Desktop/CINe_Lab/Web_framework/"+url)
+        }
+    </script>
+    </body>
+</html>

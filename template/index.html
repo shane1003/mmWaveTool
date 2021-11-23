@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <title>PageName</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="sb-nav-fixed">
+  <div class="loader">
+  </div>
+
+  <div class="container" style="display:none">
+
+  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="http://localhost:8888/">Title</a>
+      <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!">
+        <i class="fa fa-bars"></i>
+      </button>
+  </nav>
+  <div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <a class="nav-link" href="http://localhost:8888/">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Main Page
+                </a>
+                <a class="nav-link" href="http://localhost:8888/indoor">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Indoor
+                </a>
+                <a class="nav-link" href="http://localhost:8888/suburban">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Suburban
+                </a>
+                <a class="nav-link" href="http://localhost:8888/urban">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Urban
+                </a>
+                <a class="nav-link" href="http://localhost:8888/result">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Result
+                </a>
+            </div>
+        </div>
+      </nav>
+    </div>
+    <div id="layoutSidenav_content">
+      <main>
+          <div class="container-fluid">
+              <h1 class="mt-4">사용법</h1>
+              <div class="card mb-4" style="height: 550px; width: 100%; margin-top:30px">
+                  <div class="card-body">
+                    <ul>
+                      <li>1. 제시하는 모델은 총 3가지입니다. Indoor, Urban, Suburban</li>
+                      <li>2. 제시하는 모델은 체크포인트 파일을 사용하게 되며, 이미 Pre-trained 된 모델을 사용합니다.</li>
+                      <li>3. 홈페이지에 기입할 수 있는 값은 여러개가 있지만, 중요한 값은 다음과 같습니다.</li>
+                      <li>     Indoor : x, y </li>
+                      <li>     Suburban : scenario</li>
+                      <li>     Urban : image, x, y </li>
+                      <li>made by Computational Intelligence and Networking Laboratory</li>
+                      <li>Kwangwoon University, Seoul, Korea</li> 
+                    </ul>
+                  </div>
+              </div>
+          </div>
+      </main>
+    </div>
+  </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/scripts.js') }}" charset="utf-8"></script>
+  </body>
+</html>
